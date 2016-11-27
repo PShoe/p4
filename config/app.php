@@ -162,7 +162,6 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
         /*
          * Package Service Providers...
          */
@@ -174,6 +173,7 @@ return [
          */
         p4\Providers\AppServiceProvider::class,
         p4\Providers\AuthServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
         // p4\Providers\BroadcastServiceProvider::class,
         p4\Providers\EventServiceProvider::class,
         p4\Providers\RouteServiceProvider::class,
@@ -225,6 +225,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
     ],
 
