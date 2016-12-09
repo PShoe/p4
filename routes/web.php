@@ -12,29 +12,31 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.mainGallery');
 });
 
-# Index page to show all the paintings
-Route::get('/gallery', 'GalleryController@index')->name('gallery.index');
-# Show an individual painting
-Route::get('/gallery/{titlePaint}', 'GalleryController@show')->name('gallery.show');
 
 
-# Show a form to request a new painting
-Route::get('/request', 'RequestController@create')->name('request.create');
-# Process the form to request a new painting
-Route::post('/request', 'RequestController@store')->name('request.store');
-# Show form to edit a request
-Route::get('/request/{requestNum}/edit', 'RequestController@edit')->name('request.edit');
-# Process form to edit a request
-Route::put('/request/{requestNum}', 'RequestController@update')->name('request.update');
-# Get route to confirm deletion of request
-Route::get('/request/{requestNum}/delete', 'RequestController@delete')->name('request.destroy');
-# Delete route to actually destroy the request
-Route::delete('/books/{requestNum}', 'RequestController@destroy')->name('request.destroy');
+# Index page to show all the artwork
+Route::get('/artwork', 'GalleryController@index')->name('artwork.index')->middleware('auth');
+# Show a form to submit a new piece
+Route::get('/artwork/create', 'GalleryController@create')->name('artwork.create')->middleware('auth');
+# Process the form to submit a new piece
+Route::post('/artwork', 'GalleryController@store')->name('artwork.store');
+# Show one painting
+Route::get('/artwork/{title}', 'GalleryController@show')->name('artwork.show');
+# Show form to edit a piece's information
+Route::get('/artwork/{id}/edit', 'GalleryController@edit')->name('artwork.edit');
+# Process form to edit one of your pieces
+Route::put('/artwork/{id}', 'GalleryController@update')->name('artwork.update');
+# Get route to confirm deletion of an art submission
+Route::get('/artwork/{id}/delete', 'GalleryController@delete')->name('artwork.destroy');
+# Delete route to actually destroy the art submission
+Route::delete('/artwork/{id}', 'GalleryController@destroy')->name('artwork.destroy');
 
 
+# Index page to show all the artworks
+Route::get('/gallery', 'PageController@index')->name('page.gallery');
 Route::get('/about', 'PageController@about')->name('page.about');
 
 # Make it so the logs can only be seen locally
@@ -46,9 +48,9 @@ if(App::environment() == 'local') {
 # For migrations
 if(App::environment('local')) {
     Route::get('/drop', function() {
-        DB::statement('DROP database requests');
-        DB::statement('CREATE database requests');
-        return 'Dropped requests; created requests.';
+        DB::statement('DROP database artworks');
+        DB::statement('CREATE database artworks');
+        return 'Dropped artworks; created artworks.';
     });
 };
 
@@ -87,3 +89,7 @@ if(App::environment('local')) {
 //     echo '</pre>';
 //
 // });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

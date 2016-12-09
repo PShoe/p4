@@ -1,0 +1,38 @@
+body {
+	background: url(../images/mainPage.jpeg) center no-repeat;
+	background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+	text-align: center;
+	font-family: Helvetica, serif;
+	list-style: none;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+ul {
+	list-style: none;
+}
+li {
+	list-style: none;
+}
+.landing {
+    margin-top: 100px;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    text-decoration: none;
+	list-style: none;
+}
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: white;
+  text-align: center;
+  font-family: Helvetica, serif;
+}
