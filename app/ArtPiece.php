@@ -4,8 +4,10 @@ namespace p4;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Art_Piece extends Model
+class ArtPiece extends Model
+
 {
+    protected $table = 'art_pieces';
 
     public function artist() {
         return $this->belongsTo('p4\Artist');
@@ -18,6 +20,5 @@ class Art_Piece extends Model
     public function user() {
         return $this->belongsTo('p4\User');
     }
-
 
 }

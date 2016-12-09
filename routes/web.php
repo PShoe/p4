@@ -93,3 +93,5 @@ if(App::environment('local')) {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('/', 'PageController@welcome');

@@ -11,14 +11,13 @@ class art_piecesTableSeeder extends Seeder
      */
     public function run()
     {
-
         DB::table('art_pieces')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'title' => 'Monkey',
             'artist' => 'Pauline Shoemaker',
             'date' => '2015-01-10',
-            'image' => 'http://pshoemaker.com/thumb/gibbon.jpg',
+            'image' => 'fish.jpg',
             'description' => 'This is a monkey.',
         ]);
 

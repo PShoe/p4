@@ -4,6 +4,8 @@ namespace p4\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use p4\ArtPiece;
+
 class GalleryController extends Controller
 {
     /**
@@ -13,7 +15,7 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        //
+        return view('artwork.index');
     }
 
     /**
@@ -23,7 +25,7 @@ class GalleryController extends Controller
      */
     public function create()
     {
-        //
+        return view('artwork.create');
     }
 
     /**
@@ -34,7 +36,40 @@ class GalleryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+    //     $this->validate($request, [
+    //        'title' => 'required|min:3',
+    //        'published' => 'required|min:4|numeric',
+    //        'cover' => 'required|url',
+    //        'purchase_link' => 'required|url',
+    //    ]);
+
+        $file = $request->file('image_upload');
+        if($file->isValid()) {
+
+            # Step 1) Record info in DB- this will require requsts
+            $artpiece = new ArtPiece();
+            $artpiece->title = $request->input('title');
+            $artpiece->artist = $request->input('artist');
+            $artpiece->date = $request->input('date');
+            $artpiece->image = $request->file('image_upload');
+            $artpiece->save();
+
+            # Step 2) Save image
+            $destination = public_path().'uploads/';
+            $extension = $file->getClientOriginalExtension();
+            $fileName = $artpiece->id.'.'.$extension;
+
+            # Update this artpieace saving the image name
+            $artpiece->image = $fileName;
+            $artpiece->save();
+
+            # Save to public/uploads
+            $file->move($destination, $fileName);
+            //saving the file
+        }
+
+        return view('artwork.store');
     }
 
     /**
@@ -45,7 +80,7 @@ class GalleryController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('artwork.show');
     }
 
     /**
@@ -56,7 +91,7 @@ class GalleryController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('artwork.edit');
     }
 
     /**
@@ -68,7 +103,7 @@ class GalleryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return view('artwork.update');
     }
 
     /**
