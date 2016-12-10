@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.mainGallery')
 
 <!-- Main Content -->
 @section('content')

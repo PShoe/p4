@@ -7,6 +7,8 @@ body {
 	text-align: center;
 	font-family: Helvetica, serif;
 	list-style: none;
+	font-family: 'Raleway', sans-serif;
+	color: white;
 }
 a {
     text-decoration: none;
@@ -18,12 +20,17 @@ ul {
 li {
 	list-style: none;
 }
+
 .landing {
     margin-top: 100px;
     color: white;
     font-family: 'Raleway', sans-serif;
     text-decoration: none;
 	list-style: none;
+}
+
+.login {
+	border: 1px solid white;
 }
 
 .footer {

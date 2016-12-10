@@ -95,3 +95,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::get('/', 'PageController@welcome');
+
+
+
+Auth::routes();
+Route::get('/logout','Auth\LoginController@logout')->name('logout');

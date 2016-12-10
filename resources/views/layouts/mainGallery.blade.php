@@ -16,21 +16,21 @@
             <div></a>
 		</header>
 
-		<section= "login">
-            <ul>
-                @if(Auth::check())
-                    <li><a href='/artwork/create'>Add a new piece</a></li>
-                    <li><a href='/logout'>Log out</a></li>
-                @else
-                    <li><a href='/login'>Log in</a></li>
-                    <li><a href='/register'>Register</a></li>
-                @endif
-            </ul>
-		</section>
-
         <section>
             @yield('content')
         </section>
+
+		<div class= "login">
+			<ul>
+				@if(Auth::check())
+					<li><a href='/artwork/create'>Add a new piece</a></li>
+					<li><a href='/logout'>Log out</a></li>
+				@else
+					<li><a href='/login'>Log in</a></li>
+					<li><a href='/register'>Register</a></li>
+				@endif
+			</ul>
+		</div>
 
 		<div class ="footer">
             Pauline Shoemaker, Dynamic Web Applications, Fall Semester 2016.
