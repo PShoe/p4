@@ -1,11 +1,12 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use p4\Tag;
+
 
 class TagsTableSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
      *
      * @return void
      */
