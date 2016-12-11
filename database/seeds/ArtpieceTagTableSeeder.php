@@ -1,17 +1,13 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Artpiece;
-use App\Tag;
+use p4\Artpiece;
+use p4\Tag;
 
 
 class ArtpieceTagTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+
     public function run()
     {
         $artpieces =[
@@ -26,7 +22,9 @@ class ArtpieceTagTableSeeder extends Seeder
 
             foreach($tags as $tagName) {
                 $tag = Tag::where('name','LIKE',$tagName)->first();
-                $artpiece ->tags()->save($tag);
+                $artpiece->tags()->save($tag);
             }
         }
     }
+
+}

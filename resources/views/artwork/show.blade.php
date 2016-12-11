@@ -9,11 +9,11 @@
 
     <img src='{{ $artpiece->image }}' alt='{{$artpiece->image }}'>
 
-    <!-- <div class='tags'>
+    <div class='tags'>
         @foreach($artpiece->tags as $tag)
             <div class='tag'>{{ $tag->name }}</div>
         @endforeach
-    </div> -->
+    </div>
 
     <a class='button' href='/artwork/{{ $artpiece->id }}/edit'><i class='fa fa-pencil'></i> Edit</a>
     <a class='button' href='/artwork/{{ $artpiece->id }}/delete'><i class='fa fa-trash'></i> Delete</a>

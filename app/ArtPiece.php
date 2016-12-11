@@ -20,9 +20,6 @@ class Artpiece extends Model
     public function user() {
         return $this->belongsTo('p4\User');
     }
-    public function tags()
-    {
-        return $this->belongsToMany('p4\Tag')->withTimestamps();
-    }
+
 
 }

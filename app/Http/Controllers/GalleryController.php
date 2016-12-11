@@ -13,65 +13,61 @@ use Session;
 
 class GalleryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+
+    public function index(Request $request)
     {
-
-    $user = $request->user();
-
-    if($user) {
-        $artwork = $user->artworks()->get();
-    }
-    else {
-        $artwork = [];
-    }
-    return view('artwork.index');
+        $user = $request->user();
+        if($user) {
+            $artpieces = $user->artpieces()->get();
+        }
+        else {
+            $artpieces = [];
+        }
+        return view('artwork.index')->with([
+            'artpieces' => $artpieces
+        ]);
 
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    * Show the form for creating a new resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
     public function create()
     {
-        // # Author
-        // $authors_for_dropdown = Author::getForDropdown();
-        // # Author
-        // $tags_for_checkboxes = Tag::getForCheckboxes();
-        // return view('book.create')->with([
-        //     'authors_for_dropdown' => $authors_for_dropdown,
-        //     'tags_for_checkboxes' => $tags_for_checkboxes
-        // ]);
+        $artists_for_dropdown = artist::getForDropdown();
+        $tags_for_checkboxes = Tag::getForCheckboxes();
+        return view('artwork.create')->with([
+            'artists_for_dropdown' => $artists_for_dropdown,
+            'tags_for_checkboxes' => $tags_for_checkboxes
+        ]);
 
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    * Store a newly created resource in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @return \Illuminate\Http\Response
+    */
     public function store(Request $request)
     {
 
-    //     $this->validate($request, [
-    //        'title' => 'required|min:3',
-    //        'published' => 'required|min:4|numeric',
-    //        'cover' => 'required|url',
-    //        'purchase_link' => 'required|url',
-    //    ]);
+        $this->validate($request, [
+            'title' => 'required|min:1',
+            'date' => 'required'|'date',
+            'artist' => 'required|min:1',
+            'image' => 'required',
+            'description' => 'required',
+            'medium' => 'required',
+        ]);
 
         $file = $request->file('image_upload');
         if($file->isValid()) {
 
             # Step 1) Record info in DB- this will require requsts
-            $artpiece = new ArtPiece();
+            $artpiece = new Artpiece();
             $artpiece->title = $request->input('title');
             $artpiece->artist = $request->input('artist');
             $artpiece->date = $request->input('date');
@@ -92,15 +88,17 @@ class GalleryController extends Controller
             //saving the file
         }
 
-        return view('artwork.store');
+        Session::flash('flash_message', 'Your work, ""'.$artpiece->title.'"" was added.');
+        return redirect('/artwork');
+
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Display the specified resource.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function show($id)
     {
         $artwork = Artpiece::find($id);
@@ -108,40 +106,103 @@ class GalleryController extends Controller
             Session::flash('message','This piece cannot be found');
             return redirect('/artwork');
         }
-        return view('artwork.show');
+        return view('artwork.show')->with([
+            'artpiece' => $artpiece,
+        ]);
+
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Show the form for editing the specified resource.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function edit($id)
     {
-        return view('artwork.edit');
+        $artpiece = artpiece::find($id);
+        $artists_for_dropdown = Artist::getForDropdown();
+        $tags_for_checkboxes = Tag::getForCheckboxes();
+        $tags_for_this_artpiece = [];
+        foreach($artpiece->tags as $tag) {
+            $tags_for_this_artpiece[] = $artpiece->name;
+        }
+        return view('artwork.edit')->with(
+            [
+                'artpiece' => $artpiece,
+                'artists_for_dropdown' => $artists_for_dropdown,
+                'tags_for_checkboxes' => $tags_for_checkboxes,
+                'tags_for_this_artpiece' => $tags_for_this_artpiece,
+            ]
+        );
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Update the specified resource in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function update(Request $request, $id)
     {
-        return view('artwork.update');
+
+        $this->validate($request, [
+            'title' => 'required|min:1',
+            'date' => 'required'|'date',
+            'artist' => 'required|min:1',
+            'image' => 'required',
+            'description' => 'required',
+            'medium' => 'required',
+        ]);
+
+        $artpiece = Artpiece::find($request->id);
+        $artpiece->title = $request->title;
+        $artpiece->image = $request->image;
+        $artpiece->date = $request->date;
+        $artpiece->artist_id = $request->artist_id;
+        $artpiece->description = $request->description;
+        $artpiece->medium = $request->medium;
+        $artpiece->save();
+
+
+        if($request->tags) {
+            $tags = $request->tags;
+        }
+
+        else {
+            $tags = [];
+        }
+
+        $artpiece->tags()->sync($tags);
+        $artpiece->save();
+        # Finish
+        Session::flash('flash_message', 'Your changes to '.$artpiece->title.' were saved.');
+        return redirect('/artwork');
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
+    public function delete($id) {
+        $artpiece = Artpiece::find($id);
+        return view('artwork.delete')->with('artpiece', $artpiece);
+    }
+
+
     public function destroy($id)
     {
-        //
+        $artpiece = Artpiece::find($id);
+        if(is_null($artpiece)) {
+            Session::flash('message','artpiece not found.');
+            return redirect('/artwork');
+        }
+        if($artpiece->tags()) {
+            $artpiece->tags()->detach();
+        }
+        $artpiece->delete();
+
+        Session::flash('flash_message', $artpiece->title.' was deleted.');
+        return redirect('/artwork');
     }
+
 }
