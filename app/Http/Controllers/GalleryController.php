@@ -5,6 +5,11 @@ namespace p4\Http\Controllers;
 use Illuminate\Http\Request;
 
 use p4\ArtPiece;
+use p4\Http\Requests;
+use App\Tag;
+use App\Artist;
+use Session;
+
 
 class GalleryController extends Controller
 {
@@ -15,7 +20,17 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        return view('artwork.index');
+
+    $user = $request->user();
+
+    if($user) {
+        $artwork = $user->artworks()->get();
+    }
+    else {
+        $artwork = [];
+    }
+    return view('artwork.index');
+
     }
 
     /**
@@ -25,7 +40,15 @@ class GalleryController extends Controller
      */
     public function create()
     {
-        return view('artwork.create');
+        // # Author
+        // $authors_for_dropdown = Author::getForDropdown();
+        // # Author
+        // $tags_for_checkboxes = Tag::getForCheckboxes();
+        // return view('book.create')->with([
+        //     'authors_for_dropdown' => $authors_for_dropdown,
+        //     'tags_for_checkboxes' => $tags_for_checkboxes
+        // ]);
+
     }
 
     /**
@@ -80,6 +103,11 @@ class GalleryController extends Controller
      */
     public function show($id)
     {
+        $artwork = Artpiece::find($id);
+        if(is_null($artwork)) {
+            Session::flash('message','This piece cannot be found');
+            return redirect('/artwork');
+        }
         return view('artwork.show');
     }
 

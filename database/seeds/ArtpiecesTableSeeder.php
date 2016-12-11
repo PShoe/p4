@@ -1,41 +1,45 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use p4\Artist;
 
-class art_piecesTableSeeder extends Seeder
+class ArtpiecesTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+
     public function run()
     {
-        DB::table('art_pieces')->insert([
+
+        $artist_id = Artist::where('last_name','=','Smith')->pluck('id')->first();
+
+        DB::table('artpieces')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'title' => 'Monkey',
-            'artist' => 'Pauline Shoemaker',
+            'artist_id' => $artist_id,
             'date' => '2015-01-10',
             'image' => 'fish.jpg',
             'description' => 'This is a monkey.',
         ]);
 
-        DB::table('art_pieces')->insert([
+        $artist_id = Artist::where('last_name','=','Shoemaker')->pluck('id')->first();
+
+        DB::table('artpieces')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'title' => 'Tree',
-            'artist' => 'Pauline Shoemaker',
+            'artist_id' => $artist_id,
             'date' => '2014-07-04',
             'image' => 'http://pshoemaker.com/images/tree.jpg',
             'description' => 'This is a tree.',
         ]);
 
-        DB::table('art_pieces')->insert([
+        $artist_id = Artist::where('last_name','=','Jones')->pluck('id')->first();
+
+        DB::table('artpieces')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'title' => 'Bear',
-            'artist' => 'Pauline Shoemaker',
+            'artist_id' => $artist_id,
             'date' => '2016-05-20',
             'image' => 'http://pshoemaker.com/thumb/bear.jpg',
             'description' => 'This is a bear.',
