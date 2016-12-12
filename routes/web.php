@@ -51,7 +51,7 @@ if(App::environment('local')) {
     });
 };
 
-FOR PRACTICE
+// FOR PRACTICE
  Route::get('/debug', function() {
 
     echo '<pre>';
