@@ -19,6 +19,7 @@ class ArtpiecesTableSeeder extends Seeder
             'date' => '2015-01-10',
             'image' => 'fish.jpg',
             'description' => 'This is a monkey.',
+            'user_id' => 1,
         ]);
 
         $artist_id = Artist::where('last_name','=','Shoemaker')->pluck('id')->first();
@@ -31,6 +32,7 @@ class ArtpiecesTableSeeder extends Seeder
             'date' => '2014-07-04',
             'image' => 'http://pshoemaker.com/images/tree.jpg',
             'description' => 'This is a tree.',
+            'user_id' => 1,
         ]);
 
         $artist_id = Artist::where('last_name','=','Jones')->pluck('id')->first();
@@ -43,6 +45,7 @@ class ArtpiecesTableSeeder extends Seeder
             'date' => '2016-05-20',
             'image' => 'http://pshoemaker.com/thumb/bear.jpg',
             'description' => 'This is a bear.',
+            'user_id' => 1,
         ]);
     }
 }

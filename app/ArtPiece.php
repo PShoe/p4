@@ -21,5 +21,4 @@ class Artpiece extends Model
         return $this->belongsTo('p4\User');
     }
 
-
 }

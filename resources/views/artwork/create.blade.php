@@ -27,7 +27,7 @@
         <input type='checkbox' value='{{ $tag_id }}' name='tags[]'>
         {{ $tag_name }} <br>
         @endforeach
-        
+
     </div>
 
 
@@ -53,9 +53,16 @@
     <div class='error'>{{ $errors->first('medium') }}</div>
 
     <div>
-        <input type='file' id='image' name='image_upload'>
+        <label>Leave a short description below:
+            <input type='text' id='description' name='description' value='{{ old('description') }}'>
+        </label>
     </div>
-    <div class='error'>{{ $errors->first('image_upload') }}</div>
+    <div class='error'>{{ $errors->first('description') }}</div>
+
+    <div>
+        <input type='file' id='image' name='image'>
+    </div>
+    <div class='error'>{{ $errors->first('image') }}</div>
 
     <div>
         <button type="submit">Add your work!</button>

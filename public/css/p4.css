@@ -28,6 +28,11 @@ li {
     text-decoration: none;
 	list-style: none;
 }
+.login {
+	text-align: left;
+	float: left;
+
+}
 
 .footer {
   position: absolute;

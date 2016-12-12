@@ -54,7 +54,7 @@ class GalleryController extends Controller
             'medium' => 'required',
         ]);
 
-        $file = $request->file('image_upload');
+        $file = $request->file('image');
         if($file->isValid()) {
 
             # Step 1) Record info in DB- this will require requsts
@@ -62,7 +62,9 @@ class GalleryController extends Controller
             $artpiece->title = $request->input('title');
             $artpiece->artist = $request->input('artist');
             $artpiece->date = $request->input('date');
-            $artpiece->image = $request->file('image_upload');
+            $artpiece->image = $request->file('image');
+            $artpiece->medium = $request->file('medium');
+            $book->user_id = $request->user()->id;
             $artpiece->save();
 
             # Step 2) Save image

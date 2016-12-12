@@ -8,7 +8,7 @@
 <form method='POST' action='/artwork/{{ $artpiece->id }}'>
 
     {{ method_field('PUT') }}
-    
+
     {{ csrf_field() }}
 
     <input name='id' value='{{$artpiece->id}}' type='hidden'>
@@ -31,9 +31,9 @@
     <div>
         <label>Upload Image:</label>
         <input
-        type='image' id='image' name='image_upload' value='{{ old('image_upload', $artpiece->image_upload) }}'
+        type='image' id='image' name='image' value='{{ old('image', $artpiece->image) }}'
         >
-        <div class='error'>{{ $errors->first('image_upload') }}</div>
+        <div class='error'>{{ $errors->first('image') }}</div>
     </div>
 
     <div>

@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.mainGallery');
-});
-
+Route::get('/', 'PageController@welcome');
 
 
 # Index page to show all the artwork

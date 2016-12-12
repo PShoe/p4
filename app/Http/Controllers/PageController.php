@@ -11,7 +11,7 @@ class PageController extends Controller
         if($request->user()) {
             return redirect('/artwork');
         }
-        return view('artwork.create');
+        return view('layouts.mainGallery');
     }
     /**
 	*
