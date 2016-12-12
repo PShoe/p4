@@ -48,7 +48,7 @@ class GalleryController extends Controller
         $this->validate($request, [
             'title' => 'required|min:1',
             'date' => 'required',
-            'artist' => 'required|min:1',
+            'artist_id' => 'required|min:1',
             'image' => 'required',
             'description' => 'required',
             'medium' => 'required',
@@ -60,11 +60,11 @@ class GalleryController extends Controller
             # Step 1) Record info in DB- this will require requsts
             $artpiece = new Artpiece();
             $artpiece->title = $request->input('title');
-            $artpiece->artist = $request->input('artist');
+            $artpiece->artist_id = $request->input('artist_id');
             $artpiece->date = $request->input('date');
             $artpiece->image = $request->file('image');
             $artpiece->medium = $request->file('medium');
-            $book->user_id = $request->user()->id;
+            $artpiece->user_id = $request->user()->id;
             $artpiece->save();
 
             # Step 2) Save image
@@ -127,7 +127,7 @@ class GalleryController extends Controller
         $this->validate($request, [
             'title' => 'required|min:1',
             'date' => 'required',
-            'artist' => 'required|min:1',
+            'artist_id' => 'required|min:1',
             'image' => 'required',
             'description' => 'required',
             'medium' => 'required',

@@ -33,6 +33,18 @@ form {
 	margin-bottom: 75px;
 }
 
+.artpiece{
+	margin: auto;
+	width: 50%;
+	background-color: rgba(0,0,0, 0.5);
+	text-align: center;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	position: relative;
+	font-size: 20px;
+	margin-bottom: 75px;
+}
+
 button{
 	background-color:#44c767;
 	border:3px solid #18ab29;

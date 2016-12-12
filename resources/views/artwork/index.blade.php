@@ -11,17 +11,18 @@ View all the artwork
 @if(sizeof($artpieces) == 0)
 You have not added any artwork you can <a href='/artwork/create'>add a piece now to get started</a>.
 @else
+
 <div id='artpieces' class='cf'>
     @foreach($artpieces as $artpiece)
 
     <section class='artpiece'>
-        <a href='/artpieces/{{ $artpiece->id }}'><h2 class='truncate'>{{ $artpiece->title }}</h2></a>
+        <a href='/artpieces/{{ $artpiece->id }}'><h2>{{ $artpiece->title }}</h2></a>
 
-        <h3 class='truncate'>{{ $artpiece->author->first_name }} {{ $artpiece->author->last_name }}</h3>
+        <h3>{{ $artpiece->artist->first_name }} {{ $artpiece->artist->last_name }}</h3>
 
         <a href='/artpieces/{{ $artpiece->id }}'><img class='image' src='{{ $artpiece->image }}' alt='Image of {{ $artpiece->title }}'></a>
 
-        <div class='tags'>
+        <div>
             @foreach($artpiece->tags as $tag)
             <div class='tag'>{{ $tag->name }}</div>
             @endforeach

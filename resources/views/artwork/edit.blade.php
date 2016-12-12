@@ -38,7 +38,7 @@
 
     <div>
         <label>Artist</label>
-        <select name='artist'>
+        <select name='artist_id'>
             @foreach($artists_for_dropdown as $artist_id => $artist)
             <option
             {{ ($artist_id == $artpiece->artist->id) ? 'SELECTED' : '' }}
