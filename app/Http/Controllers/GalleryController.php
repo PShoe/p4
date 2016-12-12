@@ -4,10 +4,10 @@ namespace p4\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use p4\ArtPiece;
 use p4\Http\Requests;
-use App\Tag;
-use App\Artist;
+use p4\ArtPiece;
+use p4\Tag;
+use p4\Artist;
 use Session;
 
 
@@ -29,14 +29,9 @@ class GalleryController extends Controller
 
     }
 
-    /**
-    * Show the form for creating a new resource.
-    *
-    * @return \Illuminate\Http\Response
-    */
     public function create()
     {
-        $artists_for_dropdown = artist::getForDropdown();
+        $artists_for_dropdown = Artist::getForDropdown();
         $tags_for_checkboxes = Tag::getForCheckboxes();
         return view('artwork.create')->with([
             'artists_for_dropdown' => $artists_for_dropdown,
@@ -45,18 +40,13 @@ class GalleryController extends Controller
 
     }
 
-    /**
-    * Store a newly created resource in storage.
-    *
-    * @param  \Illuminate\Http\Request  $request
-    * @return \Illuminate\Http\Response
-    */
+
     public function store(Request $request)
     {
 
         $this->validate($request, [
             'title' => 'required|min:1',
-            'date' => 'required'|'date',
+            'date' => 'required',
             'artist' => 'required|min:1',
             'image' => 'required',
             'description' => 'required',
@@ -93,12 +83,7 @@ class GalleryController extends Controller
 
     }
 
-    /**
-    * Display the specified resource.
-    *
-    * @param  int  $id
-    * @return \Illuminate\Http\Response
-    */
+
     public function show($id)
     {
         $artwork = Artpiece::find($id);
@@ -112,15 +97,10 @@ class GalleryController extends Controller
 
     }
 
-    /**
-    * Show the form for editing the specified resource.
-    *
-    * @param  int  $id
-    * @return \Illuminate\Http\Response
-    */
+
     public function edit($id)
     {
-        $artpiece = artpiece::find($id);
+        $artpiece = Artpiece::find($id);
         $artists_for_dropdown = Artist::getForDropdown();
         $tags_for_checkboxes = Tag::getForCheckboxes();
         $tags_for_this_artpiece = [];
@@ -137,19 +117,13 @@ class GalleryController extends Controller
         );
     }
 
-    /**
-    * Update the specified resource in storage.
-    *
-    * @param  \Illuminate\Http\Request  $request
-    * @param  int  $id
-    * @return \Illuminate\Http\Response
-    */
+
     public function update(Request $request, $id)
     {
 
         $this->validate($request, [
             'title' => 'required|min:1',
-            'date' => 'required'|'date',
+            'date' => 'required',
             'artist' => 'required|min:1',
             'image' => 'required',
             'description' => 'required',

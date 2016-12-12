@@ -1,11 +1,9 @@
 @extends('layouts.mainGallery')
 
 @section('title')
-    Confirm deletion: {{ $artpiece->title }}
+Confirm deletion: {{ $artpiece->title }}
 
-    $file = $request->file('image_upload');
-    $artpiece->title = $request->input('title');
-    $artpiece->image = $request->input('image');
+$artpiece->title = $request->input('title');
 
 @endsection
 

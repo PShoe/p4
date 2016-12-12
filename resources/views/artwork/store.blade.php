@@ -3,5 +3,7 @@
 
 @section('content')
 
+    Success! Your piece {{ $title }} was added.
 
-<h2>It has been stored</h2>
+    <a href='/artwork/create'>Add another one...</a>
+@stop

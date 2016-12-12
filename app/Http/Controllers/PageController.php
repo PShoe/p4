@@ -11,13 +11,17 @@ class PageController extends Controller
         if($request->user()) {
             return redirect('/artwork');
         }
-        return view('layouts.mainGallery');
+        return view('artwork.create');
     }
     /**
 	*
 	*/
     public function about() {
         return 'This page should have a little bio';
+    }
+
+    public function gallery() {
+        return 'This page should have a little gallery';
     }
     /**
 	*
