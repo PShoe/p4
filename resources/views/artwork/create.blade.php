@@ -9,16 +9,25 @@
 
     {{ csrf_field() }}
 
-    <div class='form-group'>
+    <div>
         <label>Artist:</label>
         <select name='artist_id'>
 
             @foreach($artists_for_dropdown as $artist_id => $artist)
             <option value='{{ $artist_id }}'>{{ $artist }}</option>
             @endforeach
-
+            <option value='{{ $artist_id }}'>New Artist</option>
         </select>
     </div>
+
+    <!-- @if($artist_id == 'New Artist')
+    <div>
+        <label>New Artist:
+            <input type='text' name='artist_id'>
+        </label>
+    </div>
+    @endif -->
+
 
     <div class='tag'>
 
@@ -29,7 +38,9 @@
 
     </div>
 
+
     <div>
+        <br>
         <label>Title of the piece:
             <input type='text' id='title' name='title' value='{{ old('title') }}'>
         </label>
@@ -51,7 +62,7 @@
     <div class='error'>{{ $errors->first('medium') }}</div>
 
     <div>
-        <label>Leave a short description below:
+        <label>Brief Description:
             <input type='text' id='description' name='description' value='{{ old('description') }}'>
         </label>
     </div>
@@ -63,6 +74,7 @@
     <div class='error'>{{ $errors->first('image') }}</div>
 
     <div>
+        <br>
         <button type="submit">Add your work!</button>
     </div>
 
