@@ -70,13 +70,16 @@ button:active {
 	border: 1px solid white;
 	padding-right: 30px;
 }
-
 .login a:hover{
 	color:red;
 
 }
+.tag{
+	text-align: left;
+	padding-left: 30px;
+}
 .footer {
-  position: relative;
+  position: fixed;
   right: 0;
   bottom: 0;
   left: 0;

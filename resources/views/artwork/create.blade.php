@@ -20,8 +20,7 @@
         </select>
     </div>
 
-    <div class='form-group'>
-        <label>Tags</label>
+    <div class='tag'>
 
         @foreach($tags_for_checkboxes as $tag_id => $tag_name)
         <input type='checkbox' value='{{ $tag_id }}' name='tags[]'>
