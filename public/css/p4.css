@@ -21,6 +21,38 @@ li {
 	list-style: none;
 }
 
+form {
+	margin: auto;
+  	width: 50%;
+	background-color: rgba(0,0,0, 0.5);
+	text-align: center;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	position: relative;
+	font-size: 20px;
+	margin-bottom: 75px;
+}
+
+button{
+	background-color:#44c767;
+	border:3px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:15px;
+	padding:8px 43px;
+	text-decoration:none;
+	text-shadow:0px 0px 0px #2f6627;
+	margin-top: 10px;
+}
+button:hover {
+	background-color:#5cbf2a;
+}
+button:active {
+	position:relative;
+	top:1px;
+}
+
 .landing {
     margin-top: 100px;
     color: white;
@@ -29,13 +61,22 @@ li {
 	list-style: none;
 }
 .login {
-	text-align: left;
-	float: left;
-
+	position: fixed;
+	float:left;
+	top:0;
+    background-color: black;
+    text-align: left;
+	font-size: 20px;
+	border: 1px solid white;
+	padding-right: 30px;
 }
 
+.login a:hover{
+	color:red;
+
+}
 .footer {
-  position: absolute;
+  position: relative;
   right: 0;
   bottom: 0;
   left: 0;
@@ -43,4 +84,6 @@ li {
   background-color: white;
   text-align: center;
   font-family: Helvetica, serif;
+  color:black;
+  border: 1px solid black;
 }

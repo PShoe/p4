@@ -9,7 +9,7 @@ class ArtpiecesTableSeeder extends Seeder
     public function run()
     {
 
-        $artist_id = Artist::where('last_name','=','Smith')->pluck('id')->first();
+        $artist_id = Artist::where('last_name','=','Shoemaker')->pluck('id')->first();
 
         DB::table('artpieces')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
@@ -22,7 +22,7 @@ class ArtpiecesTableSeeder extends Seeder
             'user_id' => 1,
         ]);
 
-        $artist_id = Artist::where('last_name','=','Shoemaker')->pluck('id')->first();
+        $artist_id = Artist::where('last_name','=','Smith')->pluck('id')->first();
 
         DB::table('artpieces')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
@@ -35,7 +35,7 @@ class ArtpiecesTableSeeder extends Seeder
             'user_id' => 1,
         ]);
 
-        $artist_id = Artist::where('last_name','=','Jones')->pluck('id')->first();
+        $artist_id = Artist::where('last_name','=','Sherman')->pluck('id')->first();
 
         DB::table('artpieces')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),

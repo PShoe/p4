@@ -30,7 +30,6 @@
 
     </div>
 
-
     <div>
         <label>Title of the piece:
             <input type='text' id='title' name='title' value='{{ old('title') }}'>
@@ -39,8 +38,8 @@
     <div class='error'>{{ $errors->first('title') }}</div>
 
     <div>
-        <label>Date of completion:
-            <input type='date' id='date' name='date' value='{{ old('date') }}'>
+        <label>Date of completion:  'YYYY-DD-MM',
+            <input type='text' id='date' name='date' value='{{ old('date') }}'>
         </label>
     </div>
     <div class='error'>{{ $errors->first('date') }}</div>

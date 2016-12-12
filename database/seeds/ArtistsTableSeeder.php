@@ -19,18 +19,18 @@ class ArtistsTableSeeder extends Seeder
         DB::table('artists')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'first_name' => 'Jill',
+            'first_name' => 'Jennie',
             'last_name' => 'Smith',
-            'location' => 'Los Angeles',
+            'location' => 'Pittsburgh',
 
         ]);
 
         DB::table('artists')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'first_name' => 'Jamal',
-            'last_name' => 'Jones',
-            'location' => 'Houston',
+            'first_name' => 'Mary',
+            'last_name' => 'Sherman',
+            'location' => 'Philadelphia',
 
         ]);
     }

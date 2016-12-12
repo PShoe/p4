@@ -23,11 +23,11 @@
 		<div class= "login">
 			<ul>
 				@if(Auth::check())
-					<li><a href='/artwork/create'>Add a new piece</a></li>
-					<li><a href='/logout'>Log out</a></li>
+					<li><a href='/artwork/create'>ADD A NEW PIECE</a></li>
+					<li><a href='/logout'>LOG OUT</a></li>
 				@else
-					<li><a href='/login'>Log in</a></li>
-					<li><a href='/register'>Register</a></li>
+					<li><a href='/login'>LOG IN</a></li>
+					<li><a href='/register'>REGISTER</a></li>
 				@endif
 			</ul>
 		</div>
