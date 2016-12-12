@@ -18,7 +18,8 @@ class GalleryController extends Controller
     {
         $user = $request->user();
         if($user) {
-            $artpieces = $user->artpieces()->get();
+            $artpieces = Artpiece::where('user_id', '=', $user->id)->orderBy('id','DESC')->get();
+            // $artpieces = $user->artpieces()->get();
         }
         else {
             $artpieces = [];

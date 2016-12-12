@@ -1,7 +1,7 @@
 @extends('layouts.mainGallery')
 
 @section('title')
-    View all the artwork
+View all the artwork
 @endsection
 
 @section('content')
@@ -19,7 +19,7 @@ You have not added any artwork you can <a href='/artwork/create'>add a piece now
 
         <h3 class='truncate'>{{ $artpiece->author->first_name }} {{ $artpiece->author->last_name }}</h3>
 
-        <a href='/artpieces/{{ $artpiece->id }}'><img class='cover' src='{{ $artpiece->cover }}' alt='Image of {{ $artpiece->title }}'></a>
+        <a href='/artpieces/{{ $artpiece->id }}'><img class='image' src='{{ $artpiece->image }}' alt='Image of {{ $artpiece->title }}'></a>
 
         <div class='tags'>
             @foreach($artpiece->tags as $tag)

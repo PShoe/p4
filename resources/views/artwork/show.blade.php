@@ -3,11 +3,11 @@
 
 @section('content')
 
-    <h1 class='truncate'>{{ $artpiece->title }}</h1>
+    <h1>{{ $artpiece->title }}</h1>
 
-    <h2 class='truncate'>{{ $artpiece->artist->first_name }} {{ $artpiece->artist->last_name }}</h2>
+    <h2>{{ $artpiece->artist->first_name }} {{ $artpiece->artist->last_name }}</h2>
 
-    <img class='cover' src='{{ $artpiece->cover }}' alt='Image of {{$artpiece->title}}'>
+    <img src='{{ $artpiece->image }}' alt='Image of {{$artpiece->title}}'>
 
     <div class='tags'>
         @foreach($artpiece->tags as $tag)

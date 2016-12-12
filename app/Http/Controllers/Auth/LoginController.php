@@ -4,6 +4,10 @@ namespace p4\Http\Controllers\Auth;
 
 use p4\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Session;
+
+
 
 class LoginController extends Controller
 {
@@ -21,19 +25,28 @@ class LoginController extends Controller
     use AuthenticatesUsers;
 
     /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/artwork';
+    * Where to redirect users after login.
+    *
+    * @var string
+    */
+    protected $redirectTo = '/';
 
     /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    * Create a new controller instance.
+    *
+    * @return void
+    */
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'logout']);
+    }
+
+    public function logout(Request $request)
+    {
+        $this->guard()->logout();
+        $request->session()->flush();
+        $request->session()->regenerate();
+        Session::flash('flash_message','You have been logged out.');
+        return redirect('/');
     }
 }
