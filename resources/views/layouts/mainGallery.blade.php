@@ -25,7 +25,9 @@
 				@if(Auth::check())
 					<li><a href='/artwork/create'>ADD A NEW PIECE</a></li>
 					<li><a href='/logout'>LOG OUT</a></li>
+					<br>
 					<li><a href='/artwork'>VIEW YOUR GALLERY</a></li>
+					<li><a href='#'>VIEW EVERYONE'S WORK</a></li>
 				@else
 					<li><a href='/login'>LOG IN</a></li>
 					<li><a href='/register'>REGISTER</a></li>

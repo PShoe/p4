@@ -6,33 +6,56 @@ View all the artwork
 
 @section('content')
 
-<h1>View your own gallery</h1>
+<!-- $user-> name -->
+
+<h1>My Gallery</h1>
+
 
 @if(sizeof($artpieces) == 0)
 You have not added any artwork you can <a href='/artwork/create'>add a piece now to get started</a>.
 @else
 
 <div id='artpieces' class='cf'>
+
     @foreach($artpieces as $artpiece)
 
     <section class='artpiece'>
-        <a href='/artpieces/{{ $artpiece->id }}'><h2>{{ $artpiece->title }}</h2></a>
+        <h2>{{ $artpiece->title }}</h2>
+        <h2>{{ $artpiece->desciption}}</h2>
+        <li>{{ $artpiece->artist->first_name }} {{ $artpiece->artist->last_name }} </li>
+        <li>{{ $artpiece->artist->location }} based artist </li>
 
-        <h3>{{ $artpiece->artist->first_name }} {{ $artpiece->artist->last_name }}</h3>
+        </br>
+        <a href='/artpieces/{{ $artpiece->id }}'><img class='image' src='{!! url('/uploads/4.jpg') !!}' alt='Image of {{ $artpiece->title }}' width=400px border=10px></a>
 
-        <a href='/artpieces/{{ $artpiece->id }}'><img class='image' src='{{ $artpiece->image }}' alt='Image of {{ $artpiece->title }}' width=400px></a>
 
-        <div>
-            @foreach($artpiece->tags as $tag)
-            <div class='tag'>{{ $tag->name }}</div>
-            @endforeach
-        </div>
+        <!--
+        $extension = $file->getClientOriginalExtension();
+        $fileName = $artpiece->id.'.'.$extension; -->
 
+        <!-- {{ $artpiece->id }} -->
+        <!-- ABOVE ($fileName) NEEDS TO  BE IN PLACE OF 4.JPG-->
+
+</br>
         <a class='button' href='/artwork/{{ $artpiece->id }}/edit'><i class='fa fa-pencil'></i> Edit</a>
         <a class='button' href='/artwork/{{ $artpiece->id }}'><i class='fa fa-eye'></i> View</a>
         <a class='button' href='/artwork/{{ $artpiece->id }}/delete'><i class='fa fa-trash'></i> Delete</a>
+
+        <p>
+            {{ $artpiece->date}}</br>
+            {{ $artpiece->medium}}</br>
+            {{ $artpiece->description}}</br>
+        </p>
+
+            @foreach($artpiece->tags as $tag)
+            <li style="color:grey;" class='tag'>{{ $tag->name }}</li>
+            @endforeach
+
     </section>
+
     @endforeach
+
+
 </div>
 @endif
 

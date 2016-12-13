@@ -10,22 +10,13 @@
     {{ csrf_field() }}
 
     <div>
-        <label>Previous artist:</label>
+        <label>Registered Artist:</label>
         <select name='artist_id'>
             @foreach($artists_for_dropdown as $artist_id => $artist)
             <option value='{{ $artist_id }}'>{{ $artist }}</option>
             @endforeach
-            <option value='{{ $artist_id }}'>New Artist</option>
         </select>
     </div>
-
-    <div>
-        <br>
-        <label>Enter new artist:
-            <input type='text' name='artist'>
-        </label>
-    </div>
-
 
 <div class='tag'>
     <label>Tags</label>
