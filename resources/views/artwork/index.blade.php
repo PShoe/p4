@@ -28,11 +28,8 @@ You have not added any artwork you can <a href='/artwork/create'>add a piece now
         </br>
         <a href='/artpieces/{{ $artpiece->id }}'><img class='image' src='{!! url('/uploads/4.jpg') !!}' alt='Image of {{ $artpiece->title }}' width=400px border=10px></a>
 
-
         <!--
-        $extension = $file->getClientOriginalExtension();
         $fileName = $artpiece->id.'.'.$extension; -->
-
         <!-- {{ $artpiece->id }} -->
         <!-- ABOVE ($fileName) NEEDS TO  BE IN PLACE OF 4.JPG-->
 
