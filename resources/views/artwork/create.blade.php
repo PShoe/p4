@@ -10,9 +10,8 @@
     {{ csrf_field() }}
 
     <div>
-        <label>Artist:</label>
+        <label>Previous artist:</label>
         <select name='artist_id'>
-
             @foreach($artists_for_dropdown as $artist_id => $artist)
             <option value='{{ $artist_id }}'>{{ $artist }}</option>
             @endforeach
@@ -20,13 +19,12 @@
         </select>
     </div>
 
-<!-- @if($artist_id == 'New Artist')
-<div>
-<label>New Artist:
-<input type='text' name='artist_id'>
-</label>
-</div>
-@endif -->
+    <div>
+        <br>
+        <label>Enter new artist:
+            <input type='text' name='artist'>
+        </label>
+    </div>
 
 
 <div class='tag'>

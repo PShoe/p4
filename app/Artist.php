@@ -19,7 +19,6 @@ class Artist extends Model
         foreach($artists as $artist) {
             $artists_for_dropdown[$artist->id] = $artist->first_name.' '.$artist->last_name;
         }
-
         return $artists_for_dropdown;
     }
 }
