@@ -23,7 +23,7 @@
 
     <div>
         <label>Date (YYYY/DD/MM):</label>
-        <input type='date' id='date'name='date' value='{{ old('date' , $artpiece->date) }}'
+        <input type='text' id='date'name='date' value='{{ old('date' , $artpiece->date) }}'
         >
         <div class='error'>{{ $errors->first('date') }}</div>
     </div>
@@ -31,7 +31,7 @@
     <div>
         <label>Upload Image:</label>
         <input
-        type='image' id='image' name='image' value='{{ old('image', $artpiece->image) }}'
+        type='file' id='image' name='image' value='{{ old('image', $artpiece->image) }}'
         >
         <div class='error'>{{ $errors->first('image') }}</div>
     </div>
@@ -48,8 +48,9 @@
         </select>
     </div>
 
-    <div>
+    <div class='tag'>
         <label>Tags</label>
+        <br>
         @foreach($tags_for_checkboxes as $tag_id => $tag_name)
         <input
         type='checkbox'

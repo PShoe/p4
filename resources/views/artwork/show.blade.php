@@ -7,7 +7,14 @@
 
     <h2>{{ $artpiece->artist->first_name }} {{ $artpiece->artist->last_name }}</h2>
 
-    <img src='{{ $artpiece->image }}' alt='Image of {{$artpiece->title}}'>
+    <img src='/Applications/MAMP/htdocs/p4/public/uploads/4.jpg' alt='Image of {{$artpiece->title}}'>
+
+    {{ HTML::image('Applications/MAMP/htdocs/p4/public/uploads/4.jpg') }}
+
+
+
+
+    <h1>{{ $fileName }}</h1>
 
     <div class='tags'>
         @foreach($artpiece->tags as $tag)

@@ -63,12 +63,12 @@ class GalleryController extends Controller
             $artpiece->artist_id = $request->input('artist_id');
             $artpiece->date = $request->input('date');
             $artpiece->image = $request->file('image');
-            $artpiece->medium = $request->file('medium');
+            $artpiece->medium = $request->input('medium');
             $artpiece->user_id = $request->user()->id;
             $artpiece->save();
 
             # Step 2) Save image
-            $destination = public_path().'uploads/';
+            $destination = public_path().'/uploads/';
             $extension = $file->getClientOriginalExtension();
             $fileName = $artpiece->id.'.'.$extension;
 

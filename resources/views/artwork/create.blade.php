@@ -30,7 +30,8 @@
 
 
 <div class='tag'>
-
+    <label>Tags</label>
+    <br>
     @foreach($tags_for_checkboxes as $tag_id => $tag_name)
     <input type='checkbox' value='{{ $tag_id }}' name='tags[]'>
     {{ $tag_name }} <br>
