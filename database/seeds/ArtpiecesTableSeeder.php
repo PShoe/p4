@@ -17,7 +17,7 @@ class ArtpiecesTableSeeder extends Seeder
             'title' => 'Fish',
             'artist_id' => $artist_id,
             'date' => '2015-01-10',
-            'image' => 'uploads/fish.jpg',
+            'image' => '1.jpg',
             'description' => 'This is a fish.',
             'user_id' => 1,
         ]);
@@ -30,7 +30,7 @@ class ArtpiecesTableSeeder extends Seeder
             'title' => 'Tree',
             'artist_id' => $artist_id,
             'date' => '2014-07-04',
-            'image' => 'http://pshoemaker.com/images/tree.jpg',
+            'image' => '2.jpg',
             'description' => 'This is a tree.',
             'user_id' => 2,
         ]);
@@ -43,7 +43,7 @@ class ArtpiecesTableSeeder extends Seeder
             'title' => 'Bear',
             'artist_id' => $artist_id,
             'date' => '2016-05-20',
-            'image' => 'http://pshoemaker.com/thumb/bear.jpg',
+            'image' => '3.jpg',
             'description' => 'This is a bear.',
             'user_id' => 1,
         ]);

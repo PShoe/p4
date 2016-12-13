@@ -89,8 +89,8 @@ class GalleryController extends Controller
 
     public function show($id)
     {
-        $artwork = Artpiece::find($id);
-        if(is_null($artwork)) {
+        $artpiece = Artpiece::find($id);
+        if(is_null($artpiece)) {
             Session::flash('message','This piece cannot be found');
             return redirect('/artwork');
         }

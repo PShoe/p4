@@ -26,17 +26,11 @@ You have not added any artwork you can <a href='/artwork/create'>add a piece now
         <li>{{ $artpiece->artist->location }} based artist </li>
 
         </br>
-        <a href='/artpieces/{{ $artpiece->id }}'><img class='image' src='{!! url('/uploads/4.jpg') !!}' alt='Image of {{ $artpiece->title }}' width=400px border=10px></a>
-
-        <!--
-        $fileName = $artpiece->id.'.'.$extension; -->
-        <!-- {{ $artpiece->id }} -->
-        <!-- ABOVE ($fileName) NEEDS TO  BE IN PLACE OF 4.JPG-->
-
+        <a href='/artpieces/{{ $artpiece->id }}'><img class='image' src='{!! url('/uploads/'.$artpiece->image) !!}') alt='Image of {{ $artpiece->title }}' width=400px border=10px></a>
 </br>
-        <a class='button' href='/artwork/{{ $artpiece->id }}/edit'><i class='fa fa-pencil'></i> Edit</a>
-        <a class='button' href='/artwork/{{ $artpiece->id }}'><i class='fa fa-eye'></i> View</a>
-        <a class='button' href='/artwork/{{ $artpiece->id }}/delete'><i class='fa fa-trash'></i> Delete</a>
+        <li><a class='button' href='/artwork/{{ $artpiece->id }}/edit'><i class='fa fa-pencil'></i>   Edit</a></li>
+        <li><a class='button' href='/artwork/{{ $artpiece->id }}'><i class='fa fa-eye'></i>  View Large</a></li>
+        <li><a class='button' href='/artwork/{{ $artpiece->id }}/delete'><i class='fa fa-trash'></i>   Delete</a></li>
 
         <p>
             {{ $artpiece->date}}</br>
