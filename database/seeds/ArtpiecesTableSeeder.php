@@ -14,11 +14,11 @@ class ArtpiecesTableSeeder extends Seeder
         DB::table('artpieces')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'title' => 'Fish',
+            'title' => 'Landscape',
             'artist_id' => $artist_id,
             'date' => '2015-01-10',
             'image' => '1.jpg',
-            'description' => 'This is a fish.',
+            'description' => 'This is a landscape.',
             'user_id' => 1,
         ]);
 
