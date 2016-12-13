@@ -63,10 +63,6 @@
     </div>
 
 
-    <div class='form-instructions'>
-        All fields are required
-    </div>
-
     <button type="submit">Save changes</button>
 
 

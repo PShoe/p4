@@ -6,7 +6,7 @@ View all the artwork
 
 @section('content')
 
-<h1>All the artpieces</h1>
+<h1>View your own gallery</h1>
 
 @if(sizeof($artpieces) == 0)
 You have not added any artwork you can <a href='/artwork/create'>add a piece now to get started</a>.
@@ -20,7 +20,7 @@ You have not added any artwork you can <a href='/artwork/create'>add a piece now
 
         <h3>{{ $artpiece->artist->first_name }} {{ $artpiece->artist->last_name }}</h3>
 
-        <a href='/artpieces/{{ $artpiece->id }}'><img class='image' src='{{ $artpiece->image }}' alt='Image of {{ $artpiece->title }}'></a>
+        <a href='/artpieces/{{ $artpiece->id }}'><img class='image' src='{{ $artpiece->image }}' alt='Image of {{ $artpiece->title }}' width=400px></a>
 
         <div>
             @foreach($artpiece->tags as $tag)

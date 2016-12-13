@@ -125,9 +125,9 @@ class GalleryController extends Controller
     {
 
         $this->validate($request, [
-            'title' => 'required|min:1',
+            'title' => 'required',
             'date' => 'required',
-            'artist_id' => 'required|min:1',
+            'artist_id' => 'required',
             'image' => 'required',
             'description' => 'required',
             'medium' => 'required',

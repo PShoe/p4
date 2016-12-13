@@ -14,11 +14,11 @@ class ArtpiecesTableSeeder extends Seeder
         DB::table('artpieces')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'title' => 'Monkey',
+            'title' => 'Fish',
             'artist_id' => $artist_id,
             'date' => '2015-01-10',
-            'image' => 'fish.jpg',
-            'description' => 'This is a monkey.',
+            'image' => 'uploads/fish.jpg',
+            'description' => 'This is a fish.',
             'user_id' => 1,
         ]);
 
@@ -32,7 +32,7 @@ class ArtpiecesTableSeeder extends Seeder
             'date' => '2014-07-04',
             'image' => 'http://pshoemaker.com/images/tree.jpg',
             'description' => 'This is a tree.',
-            'user_id' => 1,
+            'user_id' => 2,
         ]);
 
         $artist_id = Artist::where('last_name','=','Sherman')->pluck('id')->first();

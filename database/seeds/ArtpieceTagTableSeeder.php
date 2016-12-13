@@ -11,7 +11,7 @@ class ArtpieceTagTableSeeder extends Seeder
     public function run()
     {
         $artpieces =[
-            'Monkey' => ['illustration','print design','sculpture'],
+            'Fish' => ['illustration','print design','sculpture'],
             'Tree' => ['illustration','painting','ceramic'],
             'Bear' => ['textile','ceramic','drawing']
         ];
