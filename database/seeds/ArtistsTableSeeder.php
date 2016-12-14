@@ -33,5 +33,13 @@ class ArtistsTableSeeder extends Seeder
             'location' => 'Philadelphia',
 
         ]);
+        DB::table('artists')->insert([
+            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'first_name' => 'Liam',
+            'last_name' => 'Costello',
+            'location' => 'Melbourne',
+
+        ]);
     }
 }

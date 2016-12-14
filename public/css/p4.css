@@ -9,7 +9,7 @@ body {
 	list-style: none;
 	font-family: 'Raleway', sans-serif;
 	color: white;
-	margin-top: 200px;
+	margin-top: 100px;
 }
 header h1 {
 	font-size: 50px;
@@ -95,12 +95,16 @@ button:active {
 	top:0;
     background-color: black;
     text-align: left;
-	font-size: 20px;
+	font-size: 15px;
 	border: 1px solid white;
 	padding-right: 30px;
 }
 .login a:hover{
 	color:red;
+
+}
+.login .main a:hover{
+	color:yellow;
 
 }
 .tag{

@@ -9,7 +9,7 @@
 
     {{ csrf_field() }}
 
-    <!-- <div>
+    <div>
         <label>Registered Artist:</label>
         <select name='artist_id'>
             <option></option>
@@ -17,9 +17,9 @@
             <option value='{{ $artist_id }}'>{{ $artist }}</option>
             @endforeach
         </select>
-    </div> -->
+    </div>
 
-    <div>
+    <!-- <div>
         <select style="position:absolute;top:20px;left:200px;width:200px; height:25px;line-height:20px;margin:0;padding:0;" onchange="document.getElementById('displayValue').value=this.options[this.selectedIndex].text; document.getElementById('idValue').value=this.options[this.selectedIndex].value;">
             <option value='{{ $artist_id }}'></option>
             @foreach($artists_for_dropdown as $artist_id => $artist)
@@ -28,7 +28,7 @@
         </select>
         <input name="displayValue" placeholder="Add or Select an Artist" id="displayValue" style="position:absolute;top:20px;left:200px;width:183px;width:180px\9;#width:180px;height:23px; height:21px\9;#height:18px;border:1px solid #556;" onfocus="this.select()" type="text">
         <input name='{{ $artist_id }}' id='{{ $artist_id }}' type="hidden">
-    </div>
+    </div> -->
 
 
 <br>

@@ -11,9 +11,12 @@ class ArtpieceTagTableSeeder extends Seeder
     public function run()
     {
         $artpieces =[
-            'Landscape' => ['illustration','print design','sculpture'],
+            'Hawk' => ['illustration','print design','sculpture'],
             'Tree' => ['illustration','painting','ceramic'],
-            'Bear' => ['textile','ceramic','drawing']
+            'Bear' => ['textile','ceramic','drawing'],
+            'Giraffe' => ['illustration','print design','sculpture'],
+            'Landscape' => ['illustration','painting','ceramic'],
+            'Pig' => ['textile','ceramic','drawing']
         ];
 
         foreach($artpieces as $title => $tags) {

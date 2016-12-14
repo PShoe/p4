@@ -88,7 +88,7 @@
     </div>
 
     @foreach($errors->all() as $error)
-    	{{ $error }}
+    {{ $error }}
     @endforeach
 
 </form>

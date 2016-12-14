@@ -45,9 +45,12 @@ class GalleryController extends Controller
     public function store(Request $request)
     {
 
+
+// add 'not after today' validation
+
         $this->validate($request, [
             'title' => 'required|min:1',
-            'date' => 'required',
+            'date' => 'date_format:"Y-d-m"|required',
             'artist_id' => 'required|min:1',
             'image' => 'required',
             'description' => 'required',
