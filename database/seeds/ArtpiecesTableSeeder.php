@@ -32,7 +32,7 @@ class ArtpiecesTableSeeder extends Seeder
             'date' => '2014-07-04',
             'image' => '2.jpg',
             'description' => 'This is a tree.',
-            'user_id' => 2,
+            'user_id' => 1,
         ]);
 
         $artist_id = Artist::where('last_name','=','Sherman')->pluck('id')->first();
@@ -71,7 +71,7 @@ class ArtpiecesTableSeeder extends Seeder
             'date' => '2016-05-20',
             'image' => '5.jpg',
             'description' => 'This is a Pennsylvania landscape.',
-            'user_id' => 1,
+            'user_id' => 2,
         ]);
 
         $artist_id = Artist::where('last_name','=','Shoemaker')->pluck('id')->first();
