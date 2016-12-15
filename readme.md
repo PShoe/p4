@@ -4,7 +4,7 @@
 http://p4.paulineshoemaker.me/
 
 ## Description
-
+This is a site that is meant to make uploading and organizing one's artwork easy and detailed. Eventually the goal would be add a feature that makes users work sharable with friends so that users could comment or interact with other's art work.
 
 ## Basic Needs
 
@@ -14,7 +14,9 @@ http://p4.paulineshoemaker.me/
 * Demonstrates server-side error validation
 
 ## Demo
+https://www.screencast.com/t/DHajKFyNm
 
-
-
-## Outside materials
+## Materials
+* My artwork
+* debug bar
+* Lots (and lots) of TA help- thank you!
