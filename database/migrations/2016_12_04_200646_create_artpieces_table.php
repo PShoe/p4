@@ -18,10 +18,9 @@ class CreateArtpiecesTable extends Migration
 
     $table->increments('id');
     $table->timestamps();
-
     $table->string('title');
     $table->date('date');
-    $table->string('image');
+    $table->string('image')->nullable();
     $table->mediumText('description')->nullable();
 });
     }

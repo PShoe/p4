@@ -3,7 +3,7 @@
 
 @section('content')
 
-<h1>Edit {{ $artpiece->title }} </h1>
+<h1>Edit details about "{{ $artpiece->title }}" :</h1>
 
 <form method='POST' action='/artwork/{{ $artpiece->id }}'>
 
@@ -39,13 +39,15 @@
         <div class='error'>{{ $errors->first('date') }}</div>
     </div>
 
-    <div>
+    <!-- <div>
         <label>Upload Image:</label>
         <input
         type='file' name='image' value='{{ old('image', $artpiece->image) }}'
         >
         <div class='error'>{{ $errors->first('image') }}</div>
-    </div>
+    </div> -->
+
+
 
     <div>
         <label>Medium:</label>
