@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use p4\Artpiece;
 use p4\Tag;
+use p4\Artpiece;
 
 
 class ArtpieceTagTableSeeder extends Seeder
